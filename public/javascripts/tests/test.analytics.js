@@ -110,8 +110,7 @@ test('wgTrackDownload only tracks whitelisted file extension', function() {
 });
 
 test('wgTrackDownload does not track non-whitelisted file extension', function() {
-	var count = ga.callCount;
 	jQuery('#testDiv').wgTrackDownload();
 	jQuery('a#internal-bad').click();
-	equal(ga.callCount, count);
+	ok(!ga.called);
 });
